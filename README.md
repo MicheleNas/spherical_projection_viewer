@@ -27,16 +27,14 @@ Viene definita un ulteriore variabile globale 'zoom_factor' che permetterà di m
 
 Le funzioni principali che permettono l'esecuzione dell'algoritmo sono:
 
-1. gen_canonic_plane(): 
-genera il piano canonico tangente alla sfera considerando come punto del piano tangente p = (1,0,0), e considerando anche un field of view iniziale.
+1. **gen_canonic_plane()**: genera il piano canonico tangente alla sfera considerando come punto del piano tangente p = (1,0,0), e considerando anche un field of view iniziale.
 Nello specifico genera una griglia di punti, appartenenti ad uno spazio 3D, che rappresentano la PROIEZIONE di una porzione della sfera tangente al piano. La griglia è rappresentata da un array multidimensionale di dimensione (H, W, 3) [dove H e W rappresentano le dimensioni dell'immagine]
 
 All'interno di questa funzione vengono definite le dimensioni dell'immagine (H, W) e gli angoli del cono di visuale (a_w e a_h). Per quanto riguarda le dimensioni dell'immagine planare è stato definito il rispettivo aspect ratio come il rapporto W/H = 16/9 (sono state testate H=500,H=1080,H=256 con successo). Per gli angoli del cono di visuale è stato impostato di default a_w = 60° (è possibile modificare questo valore direttamente da terminale mediante l'opzione --fov) in maniera tale che sia minore di 90°, mentre per l'angolo a_h è stata implementata la seguente espressione:
 
 a_h = 2*arctan((H/W)*tan(a_w/2)) data dalla relazione trigonometrica [W/2f = tan(a_w/2) => f = W/2*tan(a_w/2)] sostituita alla formula dell'angolo di visuale verticale a_h = 2*arctan(H/2f)
 
-2. equi_to_planar():
-permette di trasformare un sistema di coordinate equirettangolari in un sistema di coordinate planari, permettendo anche l'applicazione della rotazione sferica e dello zoom digitale dell'immagine.
+2. **equi_to_planar()**: permette di trasformare un sistema di coordinate equirettangolari in un sistema di coordinate planari, permettendo anche l'applicazione della rotazione sferica e dello zoom digitale dell'immagine.
 Per farlo tiene in considerazione come piano di partenza il piano canonico e applica a questo, qualora fosse richiesto, una rotazione o uno zoom digitale.
 
 	- Zoom digitale: Viene effettuato trasformando i punti dell'immagine mediande la matrice 'S'.
@@ -46,8 +44,7 @@ A seguire viene effettuata la normalizzazione in modo da ottenere le coordinate 
 
 Nello specifico 'equi_to_planar()' restituisce le matrici map_x e map_y, che conterranno le coordinate dei valori dei pixel da rimappare utilizzando la tecnica dell'inverse mapping
 
-3. 'handle_keyboard_input()':
-La funzione gestisce gli input da tastiera per modificare gli angoli di rotazione phi_rot, theta_rot e lo zoom_factor. 
+3. 'handle_keyboard_input()': La funzione gestisce gli input da tastiera per modificare gli angoli di rotazione phi_rot, theta_rot e lo zoom_factor. 
 
 
 main:
