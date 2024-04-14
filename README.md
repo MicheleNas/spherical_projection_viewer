@@ -38,16 +38,16 @@ a_h = 2*arctan((H/W)*tan(a_w/2)) data dalla relazione trigonometrica [W/2f = tan
 Per farlo tiene in considerazione come piano di partenza il piano canonico e applica a questo, qualora fosse richiesto, una rotazione o uno zoom digitale.
 
 	- Zoom digitale: Viene effettuato trasformando i punti dell'immagine mediande la matrice 'S'.
-	- Rotazione: Inizialmente la rotazione è settata di default a (0°,0°), e tramite essa è possibile settare l'initial view grazie all'opzione da terminale --initial_view val_latitudine val_longitudine. La rotazione degli assi viene applicata trasformando i punti dell'immagine mediante una matrice di rotazione 'R' ottenuta dagli angoli in input'phi_rot' e 'theta_rot' [R = Rz(phi_rot) * Ry(theta_rot)], gli assi di rotazione di interesse sono gli assi y con la rotazione laterale o pitch, e l'asse z con la rotazione yaw, attorno all'asse perpendicolare. 
+	- Rotazione: Inizialmente la rotazione è settata di default a (0°,0°), e tramite essa è possibile settare l'initial view grazie all'opzione da terminale --initial_view val_latitudine val_longitudine. La rotazione degli assi viene applicata trasformando i punti dell'immagine mediante una matrice di rotazione **R** ottenuta dagli angoli in input **phi_rot** e **theta_rot** [R = Rz(phi_rot) * Ry(theta_rot)], gli assi di rotazione di interesse sono gli assi y con la rotazione laterale o pitch, e l'asse z con la rotazione yaw, attorno all'asse perpendicolare. 
 	
 A seguire viene effettuata la normalizzazione in modo da ottenere le coordinate dei punti della sfera che dovranno essere proiettati nell' immagine di output. Successivamente, ottenute le coordinate cartesiane dei punti della sfera vengono calcolate le coordinate polari phi e theta.
 
-Nello specifico 'equi_to_planar()' restituisce le matrici map_x e map_y, che conterranno le coordinate dei valori dei pixel da rimappare utilizzando la tecnica dell'inverse mapping
+Nello specifico **equi_to_planar()** restituisce le matrici map_x e map_y, che conterranno le coordinate dei valori dei pixel da rimappare utilizzando la tecnica dell'inverse mapping
 
-3. 'handle_keyboard_input()': La funzione gestisce gli input da tastiera per modificare gli angoli di rotazione phi_rot, theta_rot e lo zoom_factor. 
+3. **handle_keyboard_input()**: La funzione gestisce gli input da tastiera per modificare gli angoli di rotazione phi_rot, theta_rot e lo zoom_factor. 
 
 
-main:
+**main**:
 - Inizializzazione dell'initial view e della field of view
 
 - Inizializzazione di un piano canonico tangente ad una sfera di raggio=1, in modo da generare un piano di coordinate di base su cui lavorare.
