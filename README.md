@@ -1,4 +1,4 @@
---------------------------------- START --------------------------------- 
+## START
 Opzioni: --video, --image, --initial_view, --fov
 
 Avvio:
@@ -18,7 +18,7 @@ Comandi dopo l'avvio:
 
 - Esc: termina l'esecuzione del video
 
---------------------------------- REPORT --------------------------------- 
+## REPORT
 
 La relazione qui di seguito descrive l'algoritmo implementato per la trasformazione di un video a proiezione equirettangolare in vista prospettica planare, consentendo al contempo l'iterazione dell'utente tramite input da tastiera per regolare gli angoli di rotazione in tempo reale. L'algoritmo è stato sviluppato utilizzando Python e le librerie : opencv e numpy.
 
